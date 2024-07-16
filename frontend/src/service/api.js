@@ -1,8 +1,9 @@
 import axios from 'axios';
 
 // backend server
-const API_URL = 'http://localhost:8000';
 
+const API_URL = process.env.REACT_APP_BACKEND;
+const COMPILE_API_URL = process.env.REACT_APP_COMPILE;
 // post register json data to backend
 export const uploadData = async (data) => {
     try {
@@ -194,7 +195,7 @@ export const getTestCases = async(code) => {
 
   export const runOutput = async (payload) => {
     try {
-      const {data} = await axios.post('http://localhost:5143/run', payload, {
+      const {data} = await axios.post(`${COMPILE_API_URL}/run`, payload, {
           headers: {
               "Content-Type": "application/json",
           },
@@ -257,7 +258,7 @@ export const getTestCases = async(code) => {
 
   export const getSubmitResult = async(payload1) => {
     try{
-      const { data } = await axios.post('http://localhost:5143/submit', payload1, {
+      const { data } = await axios.post(`${COMPILE_API_URL}/submit`, payload1, {
         headers: {
             "Content-Type": "application/json",
         },
