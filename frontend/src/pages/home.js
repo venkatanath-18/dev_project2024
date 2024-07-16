@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/home.css';
-import ContestCard from '../component/ContestCard';
 import { getAllContest } from '../service/api';
 
 const Home = () => {
@@ -30,23 +29,8 @@ const Home = () => {
 
   return (
     <>
-      <div className="container mt-5 mb-3">
-        <div className="row">
-          {allContest.map((contest, index) => (
-            <ContestCard
-              key={index}
-              iconClass="bx bxl-mailchimp" // Example icon class, you can change this based on your requirements
-              contestType="Contest"
-              daysLeft={calculateDaysLeft(contest.startTime)}
-              rating="0" // Set the initial rating or pass the actual rating if available
-              title={contest.title}
-              contestCode = {contest.contestCode}
-              progress={0} // Set initial progress
-              applied={0} // Initial participant count
-              capacity={contest.capacity} // Assuming 'capacity' is part of your contest data
-            />
-          ))}
-        </div>
+      <div>
+        <h1>Welcome to ProCoder Arena </h1>
       </div>
     </>
   );
