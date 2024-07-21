@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from 'react';
 import { getProfile, delSession, getAdmin } from '../service/api';
 import { Link, useNavigate } from 'react-router-dom';
 import UserContext from '../context/user/userContext';
-
 const Navbar = () => {
   const navigate = useNavigate();
   const { user, fetchUserProfile } = useContext(UserContext);
@@ -19,7 +18,7 @@ const Navbar = () => {
       const response = await delSession();
       console.log("Response while logout: ", response);
       if (response.success) {
-        window.location.href = '/';
+        navigate('/');
       }
     } catch (err) {
       console.log("Error while logout: ", err);
