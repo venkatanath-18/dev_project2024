@@ -19,7 +19,7 @@ const Navbar = () => {
       const response = await delSession();
       console.log("Response while logout: ", response);
       if (response.success) {
-        navigate('/');
+        window.location.href = '/';
       }
     } catch (err) {
       console.log("Error while logout: ", err);
